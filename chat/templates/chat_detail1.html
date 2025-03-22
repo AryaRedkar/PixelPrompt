@@ -1,3 +1,4 @@
+{% load custom_filters %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -849,18 +850,14 @@
                             <span
                                 data-id="wLJh"
                                 class="text-xs text-primary-300 opacity-0 group-hover:opacity-100 transition duration-200"
-                            >{{ chat.created_at|timesince }}</span>
+                            >{{ chat.created_at|timesince|split:","|slice:":1"|join:" " }}
+</span>
+                            
                         </a>
                         {% endfor %}
                     </div>
                     <div data-id="dj5s" class="mt-auto">
-                        <button
-                            data-id="gRKV"
-                            class="w-full py-2 px-3 rounded-lg bg-neutral-800 hover:bg-neutral-700 transition duration-200 flex items-center justify-center"
-                        >
-                            <span data-id="45KE" class="material-symbols-outlined mr-2 text-neutral-300">delete</span>
-                            <span data-id="rjQM" class="text-neutral-300">Clear conversations</span>
-                        </button>
+                        
                         <div
                             data-id="Ougk"
                             class="mt-4 flex items-center p-2 rounded-lg hover:bg-neutral-800 cursor-pointer transition duration-200"
@@ -883,8 +880,8 @@
                 <div data-id="otiI" class="flex-1 flex flex-col">
                     <div data-id="uagk" class="flex-1 overflow-y-auto p-6 bg-neutral-50">
                         <div data-id="9bW0" class="mb-8 text-center">
-                            <h1 data-id="-wcd" class="text-2xl font-bold text-neutral-800">Abstract Art</h1>
-                            <p data-id="fwR5" class="text-neutral-500">Creating imaginative abstract scenes with AI</p>
+                            <h1 data-id="-wcd" class="text-2xl font-bold text-neutral-800">{{chat.title}}</h1>
+                            {% comment %} <p data-id="fwR5" class="text-neutral-500">Creating imaginative abstract scenes with AI</p> {% endcomment %}
                         </div>
                         <div data-id="2vE2" class="space-y-8">
                             <div data-id="DMCA" class="flex flex-col space-y-2">
