@@ -29,7 +29,7 @@ def chat_detail(request, chat_id):
     if(chat_id == 'none'):
         return render(request, 'chat_detail1.html', {'chaters': Chat.objects.filter(user=request.user), 'nope': "nope"})
     chat = get_object_or_404(Chat, title=chat_id, user=request.user)
-    images = chat.images.order_by('-created_at')[:2]
+    images = chat.images.all()
     form = ImageForm()
     chaters = Chat.objects.filter(user=request.user)
 
@@ -57,7 +57,7 @@ def chat_detail(request, chat_id):
             new_image = Image(chat=chat, prompt=prompt)
             new_image.image.save(f"{chat.id}_{prompt}.png", ContentFile(image_buffer.read()), save=True)
             new_image.save()
-            return redirect('chat_detail', chat_id=chat.id)
+            return redirect('chat_detail', chat_id=chat_id)
 
     return render(request, 'chat_detail1.html', {'chat': chat, 'images': images, 'form': form, 'chaters': chaters})
 

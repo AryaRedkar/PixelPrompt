@@ -220,6 +220,10 @@
                 display: block;
                 vertical-align: middle;
             }
+            img:hover {
+                transform: scale(1.1);
+                transition: transform 0.3s ease-in-out;
+            }
             img,
             video {
                 height: auto;
@@ -405,8 +409,8 @@
             #webcrumbs .h-8 {
                 height: 32px;
             }
-            #webcrumbs .h-\[800px\] {
-                height: 800px;
+            #webcrumbs .h-\[700px\] {
+                height: 700px;
             }
             #webcrumbs .h-full {
                 height: 100%;
@@ -527,7 +531,7 @@
                 --tw-border-opacity: 1;
                 border-color: rgb(202 202 202 / var(--tw-border-opacity));
             }
-            #webcrumbs .border-r-neutral-800 {
+            #webcrumbs .border-r-neutral-700 {
                 --tw-border-opacity: 1;
                 border-right-color: rgb(84 84 84 / var(--tw-border-opacity));
             }
@@ -547,7 +551,7 @@
                 --tw-bg-opacity: 1;
                 background-color: rgb(103 103 103 / var(--tw-bg-opacity));
             }
-            #webcrumbs .bg-neutral-800 {
+            #webcrumbs .bg-neutral-700 {
                 --tw-bg-opacity: 1;
                 background-color: rgb(84 84 84 / var(--tw-bg-opacity));
             }
@@ -642,7 +646,7 @@
                 --tw-text-opacity: 1;
                 color: rgb(153 153 153 / var(--tw-text-opacity));
             }
-            #webcrumbs .text-neutral-800 {
+            #webcrumbs .text-neutral-700 {
                 --tw-text-opacity: 1;
                 color: rgb(84 84 84 / var(--tw-text-opacity));
             }
@@ -697,7 +701,7 @@
             #webcrumbs :is(.bg-neutral-700) {
                 color: hsla(0, 0%, 100%, 0.9) !important;
             }
-            #webcrumbs :is(.bg-neutral-800) {
+            #webcrumbs :is(.bg-neutral-700) {
                 color: hsla(0, 0%, 100%, 0.9) !important;
             }
             #webcrumbs :is(.bg-neutral-900) {
@@ -727,7 +731,7 @@
                 --tw-bg-opacity: 1;
                 background-color: rgb(103 103 103 / var(--tw-bg-opacity));
             }
-            #webcrumbs .hover\:bg-neutral-800:hover {
+            #webcrumbs .hover\:bg-neutral-700:hover {
                 --tw-bg-opacity: 1;
                 background-color: rgb(84 84 84 / var(--tw-bg-opacity));
             }
@@ -761,7 +765,6 @@
 
             body {
                 line-height: inherit;
-                padding: 24px;
                 display: flex;
                 flex-direction: column;
                 min-width: 100vw;
@@ -777,12 +780,12 @@
             
             <div
                 data-id="m_tv"
-                class="w-[1200px] flex h-[800px] bg-white border border-neutral-200 rounded-xl shadow-lg overflow-hidden"
+                class="w-[1200px] flex h-[700px] bg-white border border-neutral-200 rounded-xl shadow-lg overflow-hidden"
             >
             
                 <div
                     data-id="2oic"
-                    class="w-[280px] bg-neutral-900 p-4 overflow-y-auto flex flex-col border-r border-r-neutral-800"
+                    class="w-[280px] bg-neutral-900 p-4 overflow-y-auto flex flex-col border-r border-r-neutral-700"
                 >
                 <!-- Popup Form -->
                 <div id="popupForm" style="display: none;">
@@ -792,10 +795,10 @@
                             <form method="POST" class="flex flex-col gap-4">
                                 {% csrf_token %}
                                 <input type="text" name="title" placeholder="Create new chat..." required
-                                       class="px-4 py-2 bg-neutral-800 text-white rounded-lg border border-neutral-700 focus:border-primary-500 focus:ring focus:ring-primary-200 w-full">
+                                       class="px-4 py-2 bg-neutral-700 text-white rounded-lg border border-neutral-700 focus:border-primary-500 focus:ring focus:ring-primary-200 w-full">
                                 <div class="flex justify-end gap-2 mt-2">
                                     <button type="button" onclick="togglePopup()" 
-                                            class="px-4 py-2 bg-neutral-800 text-neutral-300 rounded-lg hover:bg-neutral-700 transition duration-200">
+                                            class="px-4 py-2 bg-neutral-700 text-neutral-300 rounded-lg hover:bg-neutral-700 transition duration-200">
                                         Cancel
                                     </button>
                                     <button type="submit"
@@ -809,7 +812,7 @@
                 </div>
                     <div data-id="9Glc:replace" class="flex items-center justify-between mb-6">
                         <h2 data-id="numr" class="text-white text-xl font-bold">Image Chats</h2>
-                        <button data-id="TIya" class="p-2 rounded-full hover:bg-neutral-800 transition duration-200" onclick="togglePopup()">
+                        <button data-id="TIya" class="p-2 rounded-full hover:bg-neutral-700 transition duration-200" onclick="togglePopup()">
                             <svg
                                 data-id="WJaC"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -860,7 +863,7 @@
                         
                         <div
                             data-id="Ougk"
-                            class="mt-4 flex items-center p-2 rounded-lg hover:bg-neutral-800 cursor-pointer transition duration-200"
+                            class="mt-4 flex items-center p-2 rounded-lg hover:bg-neutral-700 cursor-pointer transition duration-200"
                         >
                             <div
                                 data-id="ssQn"
@@ -878,179 +881,118 @@
                 </div>
                 {% else %}
                 <div data-id="otiI" class="flex-1 flex flex-col">
-                    <div data-id="uagk" class="flex-1 overflow-y-auto p-6 bg-neutral-50">
+                    <div data-id="uagk" class=" bg-neutral-50">
                         <div data-id="9bW0" class="mb-8 text-center">
-                            <h1 data-id="-wcd" class="text-2xl font-bold text-neutral-800">{{chat.title}}</h1>
-                            {% comment %} <p data-id="fwR5" class="text-neutral-500">Creating imaginative abstract scenes with AI</p> {% endcomment %}
+                            <h1 data-id="-wcd" class="text-xl font-bold text-neutral-700" style="padding-top:5px">{{chat.title}}</h1>
                         </div>
+                    </div>
+                    <div id="chat-container" class="overflow-y-auto p-6 bg-neutral-50 flex-1">
                         <div data-id="2vE2" class="space-y-8">
+                            {% for image in images%}
                             <div data-id="DMCA" class="flex flex-col space-y-2">
                                 <div data-id="49jU" class="flex items-start">
-                                    <div
-                                        data-id="3LGN"
-                                        class="h-8 w-8 rounded-full bg-neutral-700 flex items-center justify-center mr-3 mt-1"
-                                    >
+                                    <div data-id="3LGN" class="h-8 w-8 rounded-full bg-neutral-700 flex items-center justify-center mr-3 mt-1">
                                         <span data-id="A8MB" class="text-white text-sm">You</span>
                                     </div>
-                                    <div
-                                        data-id="Pbwx"
-                                        class="bg-neutral-200 px-4 py-3 rounded-2xl rounded-tl-none max-w-[80%]"
-                                    >
-                                        <p data-id="-3D-">
-                                            Create a vibrant abstract art with swirls of blue and orange
-                                        </p>
+                                    <div data-id="Pbwx" class="bg-neutral-200 px-4 py-3 rounded-2xl rounded-tl-none max-w-[80%]">
+                                        <p data-id="-3D-">{{ image.prompt }}</p>
                                     </div>
                                 </div>
+
                                 <div data-id="Ren4" class="flex items-start ml-auto">
-                                    <div
-                                        data-id="w6Y1"
-                                        class="bg-primary-100 px-4 py-3 rounded-2xl rounded-tr-none max-w-[80%]"
-                                    >
-                                        <p data-id="P5dA" class="mb-3">
-                                            Here are some abstract images with blue and orange swirls:
-                                        </p>
-                                        <div data-id="SN7T" class="grid grid-cols-2 gap-2">
-                                            <div
-                                                data-id="mx5I"
-                                                class="aspect-square bg-neutral-200 rounded-lg overflow-hidden hover:shadow-lg transition duration-300 hover:scale-105 cursor-pointer"
-                                            >
-                                                <img
-                                                    data-id="I1ud"
-                                                    src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
-                                                    alt="Abstract art"
-                                                    class="w-full h-full object-cover"
-                                                />
-                                            </div>
-                                            <div
-                                                data-id="Ayi0"
-                                                class="aspect-square bg-neutral-200 rounded-lg overflow-hidden hover:shadow-lg transition duration-300 hover:scale-105 cursor-pointer"
-                                            >
-                                                <img
-                                                    data-id="dFcc"
-                                                    src="https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
-                                                    alt="Abstract art"
-                                                    class="w-full h-full object-cover"
-                                                />
-                                            </div>
-                                            <div
-                                                data-id="Wf5g"
-                                                class="aspect-square bg-neutral-200 rounded-lg overflow-hidden hover:shadow-lg transition duration-300 hover:scale-105 cursor-pointer"
-                                            >
-                                                <img
-                                                    data-id="bLwp"
-                                                    src="https://images.unsplash.com/photo-1574169208507-84376144848b?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
-                                                    alt="Abstract art"
-                                                    class="w-full h-full object-cover"
-                                                />
-                                            </div>
-                                            <div
-                                                data-id="T-6H"
-                                                class="aspect-square bg-neutral-200 rounded-lg overflow-hidden hover:shadow-lg transition duration-300 hover:scale-105 cursor-pointer"
-                                            >
-                                                <img
-                                                    data-id="sG_5"
-                                                    src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
-                                                    alt="Abstract art"
-                                                    class="w-full h-full object-cover"
-                                                />
-                                            </div>
+                                    <div data-id="w6Y1" class="bg-primary-100 px-4 py-3 rounded-xl rounded-tr-none max-w-[80%]" style=" max-width:350px;">
+                                       {% comment %} <p>Here is the image :</p> {% endcomment %}
+                                        <div>
+                                            <img src="{{ image.image.url }}" alt="Generated Image" style="margin:5px;">
                                         </div>
                                         <div data-id="z9dt" class="flex justify-end mt-2 space-x-2">
-                                            <button
-                                                data-id="7fsS"
-                                                class="p-2 rounded hover:bg-neutral-200 transition duration-200"
-                                            >
-                                                <span data-id="buRQ" class="material-symbols-outlined text-neutral-500"
-                                                    >download</span
-                                                >
+                                            <a href="{{ image.image.url }}" download class="rounded hover:bg-neutral-200 transition duration-200">
+                                                <span data-id="buRQ" class="material-symbols-outlined text-neutral-500">download</span>
+                                            </a>
+                                            <button data-id="bz-Z" class="rounded hover:bg-neutral-200 transition duration-200">
+                                                <span data-id="6pYX" class="material-symbols-outlined text-neutral-500">thumb_up</span>
                                             </button>
-                                            <button
-                                                data-id="bz-Z"
-                                                class="p-2 rounded hover:bg-neutral-200 transition duration-200"
-                                            >
-                                                <span data-id="6pYX" class="material-symbols-outlined text-neutral-500"
-                                                    >link</span
-                                                >
+                                            <button data-id="bz-Z" class="rounded hover:bg-neutral-200 transition duration-200">
+                                                <span data-id="6pYX" class="material-symbols-outlined text-neutral-500">thumb_down</span>
                                             </button>
-                                            <button
-                                                data-id="hHUT"
-                                                class="p-2 rounded hover:bg-neutral-200 transition duration-200"
-                                            >
-                                                <span data-id="aIHf" class="material-symbols-outlined text-neutral-500"
-                                                    >star</span
-                                                >
+                                            <button data-id="hHUT" class="rounded hover:bg-neutral-200 transition duration-200" onclick="toggleStar(this)">
+                                                <span data-id="aIHf" class="material-symbols-outlined text-neutral-500">star</span>
                                             </button>
+
+                                            <script>
+                                            function toggleStar(button) {
+                                                const star = button.querySelector('span');
+                                                if (star.style.color === 'red') {
+                                                    star.style.color = '#6B7280'; // Reset to default gray color
+                                                } else {
+                                                    star.style.color = 'red';
+                                                }
+                                            }
+                                            </script>
                                         </div>
                                     </div>
-                                    <div
-                                        data-id="hizF"
-                                        class="h-8 w-8 rounded-full bg-primary-600 flex items-center justify-center ml-3 mt-1"
-                                    >
-                                        <span data-id="D6XL" class="material-symbols-outlined text-white text-sm"
-                                            >smart_toy</span
-                                        >
+                                    <div data-id="hizF" class="h-8 w-8 rounded-full bg-primary-600 flex items-center justify-center ml-3 mt-1">
+                                        <span data-id="D6XL" class="material-symbols-outlined text-white text-sm">smart_toy</span>
                                     </div>
                                 </div>
                             </div>
+                            {% endfor %}
                         </div>
                     </div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const container = document.getElementById('chat-container');
+                            container.scrollTop = container.scrollHeight;
+                        });
+                    </script>
                     <div data-id="8oo-" class="p-4 border-t border-neutral-200 bg-white">
                         <div data-id="4mE9" class="flex items-center space-x-2 mb-2">
                             <button
                                 data-id="Uw3M"
-                                class="p-2 rounded-full hover:bg-neutral-100 transition duration-200"
+                                class="rounded-full hover:bg-neutral-100 transition duration-200"
                             >
                                 <span data-id="wULa" class="material-symbols-outlined">photo_camera</span>
                             </button>
                             <button
                                 data-id="hr8d"
-                                class="p-2 rounded-full hover:bg-neutral-100 transition duration-200"
+                                class="rounded-full hover:bg-neutral-100 transition duration-200"
                             >
                                 <span data-id="GqXc" class="material-symbols-outlined">style</span>
                             </button>
                             <button
                                 data-id="0ABg"
-                                class="p-2 rounded-full hover:bg-neutral-100 transition duration-200"
+                                class=" rounded-full hover:bg-neutral-100 transition duration-200"
                             >
                                 <span data-id="iyTw" class="material-symbols-outlined">tune</span>
                             </button>
                             <button
                                 data-id="bJJk"
-                                class="text-xs py-1 px-3 rounded-full bg-neutral-100 hover:bg-neutral-200 transition duration-200 flex items-center"
+                                class="text-xs  px-3 rounded-full bg-neutral-100 hover:bg-neutral-200 transition duration-200 flex items-center"
                             >
                                 <span data-id="QR0H" class="mr-1">1:1</span>
                                 <span data-id="Ja5f" class="material-symbols-outlined text-xs">arrow_drop_down</span>
                             </button>
                             <button
                                 data-id="7b3_"
-                                class="text-xs py-1 px-3 rounded-full bg-neutral-100 hover:bg-neutral-200 transition duration-200 flex items-center"
+                                class="text-xs  px-3 rounded-full bg-neutral-100 hover:bg-neutral-200 transition duration-200 flex items-center"
                             >
                                 <span data-id="tndh" class="mr-1">HD</span>
                                 <span data-id="oha2" class="material-symbols-outlined text-xs">arrow_drop_down</span>
                             </button>
                         </div>
                         <div data-id="eFWD" class="relative">
-                            <textarea
-                                data-id="UhyN"
-                                class="w-full p-4 pr-20 rounded-xl border border-neutral-300 focus:border-primary-500 focus:ring focus:ring-primary-200 resize-none h-24 transition duration-200"
-                                placeholder="Describe the image you want to generate..."
-                            ></textarea>
+                            <form method="POST">
+                                {% csrf_token %}
+                                <textarea name="prompt" maxlength="255" placeholder="Describe the image you want to generate...
+Try: &quot;Fantasy landscape with dragons and waterfalls&quot;, &quot;Cyberpunk city at night&quot;" class="w-full p-4 pr-20 rounded-xl border border-neutral-300 focus:border-primary-500 focus:ring focus:ring-primary-200 resize-none h-24 transition duration-200"></textarea>
                             <button
+                                type="submit"
                                 data-id="t00h"
                                 class="absolute right-3 bottom-3 p-3 rounded-lg bg-primary-600 hover:bg-primary-700 text-white transition duration-200 flex items-center justify-center shadow-md hover:shadow-lg"
                             >
                                 <span data-id="IeWJ" class="material-symbols-outlined">magic_button</span>
                             </button>
-                        </div>
-                        <div data-id="bqRr" class="mt-2 text-xs text-neutral-500 flex justify-between">
-                            <span data-id="4DA0"
-                                >Try: &quot;Fantasy landscape with dragons and waterfalls&quot;, &quot;Cyberpunk city at
-                                night&quot;</span
-                            >
-                            <span data-id="vQON" class="flex items-center">
-                                <span data-id="wezg" class="material-symbols-outlined text-xs mr-1">info</span> Images
-                                are generated with AI
-                            </span>
+                            </form>
                         </div>
                     </div>
                 </div>
