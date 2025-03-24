@@ -872,6 +872,9 @@
                                 <span data-id="r8XW" class="text-white font-medium">{{ user.username|slice:":1" }}</span>
                             </div>
                             <span data-id="biwZ" class="text-neutral-300">{{ user.username }}</span>
+                            <a href="{% url 'logout' %}" class="ml-auto text-neutral-300 hover:text-white">
+                                <span class="material-symbols-outlined">logout</span>
+                            </a>
                         </div>
                     </div>
                 </div>

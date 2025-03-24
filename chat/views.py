@@ -8,6 +8,7 @@ from .forms import ImageForm
 from io import BytesIO
 from django.core.files.base import ContentFile
 from PIL import Image as PILImage
+from django.contrib.auth import logout
 
 # Initialize the Stable Diffusion pipeline
 model_id = "runwayml/stable-diffusion-v1-5"
@@ -27,7 +28,14 @@ def dashboard(request):
 @login_required
 def chat_detail(request, chat_id):
     if(chat_id == 'none'):
+        if request.method == 'POST':
+          title = request.POST.get('title')
+          if title:
+            Chat.objects.create(title=title, user=request.user)
+            print(11)
+            return redirect('chat_detail', chat_id=title)
         return render(request, 'chat_detail1.html', {'chaters': Chat.objects.filter(user=request.user), 'nope': "nope"})
+    
     chat = get_object_or_404(Chat, title=chat_id, user=request.user)
     images = chat.images.all()
     form = ImageForm()
@@ -37,6 +45,7 @@ def chat_detail(request, chat_id):
         title = request.POST.get('title')
         if title:
             Chat.objects.create(title=title, user=request.user)
+            print(11)
             return redirect('chat_detail', chat_id=title)
         form = ImageForm(request.POST)
         if form.is_valid():
@@ -71,7 +80,13 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)  # Automatically log in the user after registration
+            Chat.objects.create(title="First_Chat", user=request.user)
             return redirect('dashboard')
     else:
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+
