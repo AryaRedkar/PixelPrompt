@@ -15,6 +15,8 @@ class Image(models.Model):
     image = models.ImageField(upload_to='chat_images/')
     prompt = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    input_image = models.ImageField(upload_to='', blank=True, null=True)
+    strength = models.FloatField(default=0.75)
 
     def __str__(self):
         return f"Image for Chat {self.chat.title}"

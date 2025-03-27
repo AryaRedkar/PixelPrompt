@@ -11,4 +11,4 @@ Try: &quot;Fantasy landscape with dragons and waterfalls&quot;, &quot;Cyberpunk 
 
     class Meta:
         model = Image
-        fields = ['prompt']
+        fields = ['prompt', 'input_image']
