@@ -113,9 +113,59 @@
                     </div>
                 </div>
                 {% if nope %}
-                <div>
-                    HELLO
-                </div>
+                <div class="new-chat" style="
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    padding: 20px;
+    margin-left: 100px;
+    font-family: 'Raleway', sans-serif;
+    color: black;
+    animation: fadeIn 1.5s ease-in-out;
+">
+    <h2 class="greeting" style="
+        font-size: 32px;
+        font-weight: bold;
+        animation: floatText 3s infinite ease-in-out, glow 1.5s infinite alternate;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    ">Transform Ideas into Reality!</h2>
+    
+    <p class="description" style="
+        font-size: 20px;
+        font-weight: bold;
+        opacity: 0.9;
+        margin-top: 10px;
+        animation: fadeIn 2s ease-in-out;
+    ">Your creativity, now powered by AI magic.</p>
+</div>
+
+<!-- Animations -->
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes floatText {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+        100% { transform: translateY(0); }
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5); }
+        to { text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8); }
+    }
+</style>
                 {% else %}
                 <div data-id="otiI" class="flex-1 flex flex-col">
                     <div data-id="uagk" class=" bg-neutral-50">
@@ -342,37 +392,16 @@
             function showLoading(event) {
                 event.preventDefault(); // Prevent immediate form submission
                 const loadingDiv = document.getElementById("loadingContainer");
-                loadingDiv.style.display = "grid"; // Show animation with grid display
-        
-                // Submit the form using AJAX to prevent a full reload
-                const form = event.target.closest("form");
-                const formData = new FormData(form);
-        
-                fetch(form.action, {
-                    method: form.method,
-                    body: formData,
-                    headers: {
-                        "X-CSRFToken": document.querySelector("[name=csrfmiddlewaretoken]").value
-                    }
-                })
-                .then(response => response.json())  // Expecting JSON response from Django
-                .then(data => {
-                    if (data.success) {
-                        hideLoadingAndReload();  // Hide loading and reload the page
-                    } else {
-                        alert("Error: " + data.error);
-                        hideLoading();  // Hide loading on error
-                    }
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                    hideLoading();  // Hide loading on fetch failure
-                });
+                loadingDiv.style.display = "grid"; // Show animation
+
+
+                setTimeout(() => {
+                    event.target.closest("form").submit();
+                }, 500);
             }
-        
+
             function hideLoading() {
-                const loadingDiv = document.getElementById("loadingContainer");
-                loadingDiv.style.display = "none"; // Hide loading animation
+                document.getElementById("loadingContainer").style.display = "none"; 
             }
         
             function hideLoadingAndReload() {
